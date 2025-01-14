@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+ </head>
+ <body>
+  <nav class="navbar">
+    <div class="navbar-logo">
+        <img src="image/unnamed.png" alt="Logo">
+    </div>
+    <div class="navbar-toggle" id="mobile-menu" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="#" onclick="showContent('guide')">Guide</a></li>
+        <li><a href="#" onclick="showContent('home')">Home</a></li>
+        <li><a href="#" onclick="showContent('about')">About</a></li>
+        <li><a href="#" onclick="showContent('services')">Services</a></li>
+        <li><a href="#" onclick="showContent('contact')">Contact</a></li>
+        <li><a href="#" onclick="showContent('maps')">Maps</a></li>
+      </ul>
+</nav>
+ <div id="content">
+<div id="guide" class="content-section">
+  <h2>Guide</h2>
+<p>This section provides helpful guides and tips about the weather, Understanding Weather and Staying Safe<br>
+    1. <b>Weather Forecasts Explained</b> <br>
+   <p> Weather forecasts provide information about the expected atmospheric conditions for a 
+    specific location over a certain period. They typically include:</p>
+    
+    <ul>
+    <li>Temperature: Indicates how hot or cold the air is, measured in degrees Celsius or Fahrenheit.</li>
+    <li>Humidity: The amount of moisture in the air. High humidity can make you feel hotter, while low humidity can cause dry skin.</li>
+    <li> Wind Speed: Tells you how fast the wind is moving. Higher speeds can lead to stronger gusts or even storms.</li>
+    <li>Weather Conditions: Descriptions like "clear," "cloudy," "rainy," or "snowy" help you understand the type of weather to expect.</li>
+    <li>Feels Like: This is the temperature you actually feel on your skin, accounting for humidity and wind.
+    </ul><br>
+
+    <b> 2. How to Interpret a Weather Forecast</b><br>
+    <p>Short-Term Forecasts (1-3 days): These are usually accurate and can help you plan daily activities<br>
+       like outdoor trips, sports, or commuting.<br>
+    Long-Term Forecasts (4-7 days): These are less precise, as weather patterns can change. It's good for<br>
+     general planning but always check closer to the date.<br>
+    Hourly Forecasts: Useful when you need to know the exact conditions at a specific time of day, such as<br>
+     for running errands or attending events.</p>
+
+    <b>3. Weather Alerts and Warnings</b><br>
+    <ul>
+    <li>Severe Weather Warnings: Issued when dangerous weather conditions like thunderstorms, hurricanes, or heavy snow are expected. Always pay attention to these alerts.</li>
+    <li>Flood Warnings: When a flood is imminent or happening in your area. Move to higher ground and avoid driving through floodwaters.</li>
+    <li>Heat Warnings: When temperatures rise above normal and can cause heat-related illnesses. Stay hydrated and avoid direct sunlight during peak hours.</li>
+    <li>Cold Warnings: Issued during extremely low temperatures that can lead to frostbite or hypothermia. Dress warmly and avoid extended exposure to the cold.</li>
+    </ul>
+
+  <b>4. Tips for Staying Safe in Severe Weather</b>
+    <ul>
+    <li>During Thunderstorms: Avoid open fields, tall trees, and metal objects. Seek shelter indoors or in a car.</li>
+    <li>In Case of Flooding: Move to higher ground immediately. Do not attempt to walk or drive through flooded areas as the water may be deeper than it appears.</li>
+    <li>During a Heatwave: Stay indoors during the hottest part of the day. Wear light, loose clothing and drink plenty of water.</li>
+    <li>In Snowy Conditions: Drive carefully, as roads may be icy. Keep an emergency kit in your car, including blankets, water, and food.</li>
+    </ul>
+
+    <b>5. Climate vs. Weather</b><br>
+    <p>Weather refers to short-term changes in the atmosphere, such as rain, sunshine, or wind over hours or days.<br>
+    Climate is the average weather conditions in a particular region over a longer period (usually 30 years or more).<br>
+     For example, a tropical climate has hot, humid conditions year-round, while a temperate climate has cold winters <br>
+     and warm summers.</p>
+
+    <b>6. Understanding the "Feels Like" Temperature</b><br>
+    <p>The "feels like" temperature, or the apparent temperature, accounts for factors like wind chill<br>
+       or humidity to tell you how the temperature really feels. For example:<br>
+    Wind Chill: When it's cold and windy, the wind makes it feel colder than the actual temperature.<br>
+    Heat Index: In hot and humid weather, the humidity makes the temperature feel higher than it actually is.</p>
+
+    <b>7. Why Weather Changes So Quickly</b><br>
+    <p>Weather can change rapidly due to the movement of air masses, pressure systems, and temperature changes. Cold fronts,
+    warm fronts, and high- and low-pressure systems all influence the weather, leading to sudden shifts in temperature, rain, or wind.</p>
+
+   <b> 8. How to Prepare for Different Weather Conditions</b><br>
+    <ul>
+      <li>Rainy Days: Always carry an umbrella and wear waterproof shoes. Be careful on slippery roads and sidewalks.</li>
+      <li>Hot Weather: Use sunscreen, wear sunglasses, and drink plenty of water. Avoid outdoor activities during peak heat hours (10 AM to 4 PM).</li>
+      <li>Cold Weather: Dress in layers and keep your hands and feet warm. Make sure to stay dry to avoid getting too cold.</li>
+      <li>Windy Days: Secure any loose outdoor items and be cautious of falling branches or debris.</li>
+  </ul>
+
+   <b> 9. Weather Myths and Facts</b><br>
+    <ol>
+    <li>Myth: "Lightning never strikes the same place twice."<br>
+    <b>Fact:</b> Lightning can strike the same spot more than once, especially in tall structures like skyscrapers.
+    <li>Myth: "A tornado will avoid crossing rivers and lakes."</li>
+    <b>Fact:</b> Tornadoes can cross any type of terrain, including bodies of water.
+    <li>Myth: "You can tell the temperature by counting cricket chirps."</li>
+    <b>Fact:</b> Crickets do chirp more in warm weather, but this is not a reliable way to gauge temperature.
+  </ol>
+
+    <b>10. Apps and Websites to Track Weather</b><br>
+    <ul>
+    <li>AccuWeather: Provides accurate local weather forecasts, radar maps, and severe weather alerts.</li>
+    <li>The Weather Channel: Offers detailed forecasts and real-time weather tracking.</li>
+    <li>OpenWeather: Great for getting weather forecasts and history through APIs for developers.</li>
+  </ul>
+    </p>
+    <a href="#" id="back-to-home-link-about">Back to Home</a>
+</div>
+
+<div id="home" class="content-section">
+  <h2>Home</h2>
+  <p><b> Welcome to the Weather App!</b><br> Your go-to platform for live weather updates, forecasts, 
+    and important weather-related information from across the country and around the globe.<br>
+   Stay informed and prepared with real-time data, so you can make better decisions about your day,
+    whether you're planning a trip, preparing for an event, or just staying indoors.</p><br>
+    
+   <p> <b>Why Use Our Weather App?</b><br>
+    Accurate, Real-Time Weather Data Get up-to-the-minute updates 
+    on temperature, humidity, wind speed, and weather conditions for<br> your location or any city
+    worldwide. Our data is sourced from reliable weather services to ensure you’re always informed.</p>
+  
+    <p> Our website offers detailed weather forecasts that extend beyond the current
+    conditions. You'll have access to:<br></P>
+    <p>Hourly Forecasts: Plan your vaccation with precise hourly weather updates.<br>
+    
+    <p><b>Severe Weather Alerts:</b> Stay safe with notifications of thunderstorms, heavy rainfall, extreme heat, and other severe weather events.<br>
+    Interactive Weather Maps Navigate our user-friendly maps to visualize weather patterns, such as rain clouds, thunderstorms, and temperature <br>
+    fluctuations across different regions. Whether you're tracking a storm's path or curious about the weather elsewhere, our interactive maps make it easy.<br></p>
+    
+    <b>Plan Your Day with Confidence</b><br>
+    <p>Don’t let unexpected weather changes catch you off guard. With accurate,<br> real-time forecasts,
+       you can plan activities like:</p>
+    
+    <ul>
+    <li>Outdoor adventures like hiking, biking, or camping</li>
+    <li>Travel and commuting to avoid disruptions</li>
+    <li>Events like weddings, festivals, or sports matches</li>
+    <li> Dressing appropriately for changing conditions</li>
+  </ul>
+
+    </p><b>Get Alerts for Severe Weather</b><br>
+    <p>Be prepared for extreme weather conditions with timely alerts. Our Website will notify<br>
+    you when severe weather, like hurricanes, floods, or heatwaves, is expected in your area.<br>
+    Safety is our priority, and our alerts will ensure you have enough time to take precautions.</p>
+
+    <b>Weather Insights at Your Fingertips</b><br>
+    Gain valuable insights into the current weather with easy-to-understand weather<br>
+     icons, such as sunny, cloudy, rainy, or snowy conditions. Our app also provides:</p>
+    
+     <ul>
+     <li>Feels Like Temperature: Understand how the weather feels due to factors like wind chill or humidity.</li>
+    <li>Air Quality Index (AQI): Stay informed about pollution levels and outdoor air quality.</li>
+    <li>Sunrise and Sunset Times: Perfect for photographers or anyone planning outdoor activities during golden hours.</li>
+    <li> UV Index: Know when to apply extra sunscreen or avoid direct sunlight to protect your skin.</li>
+    </ul>
+     
+    
+    <b>Why Weather Matters</b>
+    <p>Weather affects our lives in countless ways—from what we wear to how we get around.<br>
+      With the Weather App, you can make smarter decisions and be prepared for any weather condition.<br>
+     Our app isn't just about forecasts; it’s about helping you live better by understanding the environment
+      around you.</p>
+    
+      <a href="#" id="back-to-home-link-about">Back to Home</a>
+</div>
+
+<div id="about" class="content-section">
+  
+  <h2>About: </h2>
+   <p> Our Weather App is designed to provide accurate, real-time weather forecasts, nowcasts,<br>
+   and historical weather data, ensuring you are always informed and prepared. Whether you're an individual,<br>
+   a traveler, or a business, our app simplifies the way you interact with weather information, making it easier<br> 
+  for you to make informed decisions, no matter where you are.</p>
+    
+    <b>Our Mission</b>
+    <p>At the heart of our app is a commitment to delivering high-quality, reliable, and timely weather data.<br>
+    We aim to empower our users to anticipate weather changes and act accordingly. From everyday tasks to<br>
+    critical decision-making during severe weather events, we strive to provide the best weather tools to
+    meet your needs.</p>
+    
+    <h5>What We Offer</h5>
+   <b>Accurate Forecasts and Nowcasts</b>
+    <p>
+    <ul>
+    <li>We utilize advanced weather models and data sources to ensure that our forecasts are as accurate as possible.<br>
+    Whether it's hourly updates, daily forecasts, or predictions for the week ahead, we provide precise information you can rely on.</li>
+    </p>
+    <p>
+    <li>Our nowcasting feature gives you a hyper-local, minute-by-minute weather outlook, helping you prepare for changes in the immediate future.<br>
+    This is especially useful when you're planning outdoor activities or need to avoid sudden weather shifts.</li>
+    </p>
+    </ul>
+
+    <b> 2.Historical Weather Data</b>
+    <p>
+      <ul>Want to know what the weather was like last year on this day, or track trends over time?
+    Our app provides access to historical weather data, offering valuable insights for research,
+    planning, or simply satisfying your curiosity. From temperature records to extreme weather events,
+    we provide you with a comprehensive overview of past conditions.</p>
+      </ul>
+
+    <b>3.Highly Recognizable Weather Products</b>
+    <ul>We provide a wide range of weather products, from icons and charts to detailed reports.<br> 
+      These products are designed to be easily understandable and actionable,<br>
+       whether you're a casual user or a weather professional. Our user-friendly interface ensures that all<br> 
+       weather data is presented in a clear and concise manner.</ul>    
+    
+<p>
+<b>Global Coverage:</b><br> Our site provides weather data from virtually every corner of the globe.
+ Whether you're at home, traveling to a remote location, or checking on the weather for a loved one
+in another country, we’ve got you covered.</p>
+    
+
+    <b>Our Vision for the Future</b><br>
+    <p>As we continue to grow and evolve, our goal is to become the leading source of weather
+     information for people around the world. We plan to expand our features to include:</p>
+    <ul>
+    <b>Climate Insights:</b> In addition to weather forecasts, we want to provide users with information on climate trends and environmental changes. This will help raise awareness of how weather patterns are changing globally and locally.
+    AI-Powered Predictions: We’re working on integrating machine learning algorithms to enhance our forecasting capabilities. These AI-powered systems will learn from past weather events and help provide even more accurate predictions.
+    Customization and Personalization: Soon, you’ll be able to tailor the app even further to your needs. Whether you’re a farmer needing to track specific weather patterns, or an outdoor enthusiast who wants to stay on top of ideal conditions, our app will provide more personalized forecasts.
+    </ul>
+    <b>Who Can Benefit from Our App?</b><br>
+    <p>
+      <ul>
+      <b><li>Travelers:</b> Planning a trip? Our app will help you pack appropriately and avoid any
+       surprises on your journey, providing detailed weather data for your destination.</li>
+    
+    <b><li>Event Planners:</b> Hosting an outdoor event? Our app will help you ensure that your plans 
+      aren’t interrupted by unforeseen weather changes.</li>
+    
+      <b><li>Businesses:</b> If your business is affected by the weather, such as in construction, agriculture,
+         or logistics, our app provides valuable insights that can improve efficiency and reduce risks.</li>
+    
+        <b><li>Everyday Users:</b> Even if you just want to know whether to bring an umbrella or sunglasses,
+           our app makes it easy to stay informed and plan your day.</li>
+      </ul>  
+      </p>
+    <h6>Join Our Growing Community</h6><br>
+    <p>Weather affects us all, and we’re proud to be your trusted source for reliable, user-friendly
+       weather information. Join the thousands of users who rely on our app every day for accurate weather data,
+        forecasts, and alerts.</p>
+    
+        <a href="#" id="back-to-home-link-about">Back to Home</a>
+  </p>
+
+</div>
+
+<div id="services" class="content-section">
+  <h3>Services</h3>
+  <p>Our services include weather <b>forecasting, storm tracking,</b>, and <b>climate reports</b>.</p>
+</div>
+
+<div id="contact" class="content-section">
+  <h3>Contact</h3>
+  <p>Reach out to us at contact@weatherapp.com or call us at +233 557161409/0241826806.</p> 
+</div>
+
+<iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509894!2d144.95373541531696!3d-37.816279979751206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11c8a3%3A0x5045675218ceed30!2sMelbourne%20CBD%2C%20Victoria%2C%20Australia!5e0!3m2!1sen!2sus!4v1615215124000!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+<button class="close-button" onclick="closeMap()">Back</button>
+</div>
+      
+  <div class="header">
+    <h1>Weather App</h1>
+    <p><h3>Weather forecast ,<br> nowcasts and history in a <br>fast and elegant way across nation wide</h3></p>
+    <input type="text" id="country" placeholder="Enter country" />
+    <button id="search-btn">Search</button>
+    <div id="mapcontainer" class="map"></div>
+  </div>
+
+  <div class="weather-container">
+    <h4 id="country-name">Country: </h4>
+    <img id="weather-icon" src="" alt="Weather Icon" />
+      <img id="country-flag" src="" alt="Country Flag" />
+    <p id="temperature">Temperature: </p>
+    <p id="feels-like">Feels like: </p>
+    <p id="wind">Wind speed: </p>
+    <p id="description">Condition: </p>
+  </div>
+
+  <div id="current-time"></div>
+<div class="app-container">
+    <div class="hourly-forecast">
+        <h3 class="section-title">Hourly forecast</h3>
+        <canvas id="hourly-chart" class="chart-container"></canvas>
+    </div>
+
+    <div class="daily-forecast">
+        <h3 class="section-title">8-day forecast</h3>
+        <div id="daily-content" class="daily-list"></div>
+    </div>
+</div>
+
+
+
+  <script>
+    
+    //Function to toggle content visibility
+    function showContent(contentId) {
+      // Hide all content sections
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // Hide the map iframe initially
+      const mapElement = document.getElementById('map');
+      mapElement.style.display = 'none';
+
+      // Show the relevant content based on the clicked item
+      if (contentId === 'maps') {
+        // Display the map iframe when Maps is clicked
+        mapElement.style.display = 'block';
+      } else {
+        // Display the specific content section
+        const contentSection = document.getElementById(contentId);
+        if (contentSection) {
+          contentSection.style.display = 'block';
+        }
+      }
+    }
+
+// Function to close the map and return to the previous content
+function closeMap() {
+  const mapElement = document.getElementById('map');
+  mapElement.style.display = 'none'; // Hide the map
+  const sections = document.querySelectorAll('.content-section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+  // Optionally, show a default section (e.g., Home)
+  document.getElementById('weather-container').style.display = 'block'; 
+}
+
+
+    // Mobile menu toggle function
+    function toggleMenu() {
+      const menu = document.getElementById('navbar-menu');
+      menu.classList.toggle('active');
+    }
+  
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+ function updateCurrentTime() {
+      const now = new Date();
+      const options = { weekday: 'long', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      const formattedTime = now.toLocaleString('en-US', options);
+      document.getElementById('current-time').innerText = `Current Time: ${formattedTime}`;
+  }
+
+  function fetchWeatherData() {
+    const apiKey = '9c49f019dd3b5b1564a921416b0d0194';
+    const location = 'Accra'; // Change to your preferred location
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric`;
+
+    fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const dailyContainer = document.getElementById('daily-content');
+                dailyContainer.innerHTML = ''; // Clear old content
+
+
+// Display daily forecast for 8 days (each day from the forecast data)
+let dayCount = 0;
+for (let i = 0; i < data.list.length; i+= 8) {
+    const dayData = data.list[i];
+    const date = new Date(dayData.dt * 1000);
+    const dayName = date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    const tempMax = Math.round(dayData.main.temp_max);
+    const tempMin = Math.round(dayData.main.temp_min);
+    const temp = `${tempMax} / ${tempMin}°C`;
+    const description = dayData.weather[0].description;
+    const iconUrl = `https://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`;
+
+
+
+  const forecastDay = `
+  <div class="forecast-day">
+      <span class="day-name">${dayName}</span>
+      <img src="${iconUrl}" alt="weather-icon" class="weather-icon">
+      <span class="temp-range">${temp}</span>
+      <span>${description}</span>
+  </div>
+`;
+dailyContainer.innerHTML += forecastDay;
+
+}
+
+// Prepare hourly data for chart
+   const hourlyTemps = [];
+  const hourlyLabels = [];
+  for (let i = 0; i < data.list.length; i += 3) { // Show data every 3 hours
+  const hourData = data.list[i];
+  const hour = new Date(hourData.dt * 1000);
+  const hourTime = hour.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+   const temp = Math.round(hourData.main.temp);
+
+  hourlyTemps.push(temp);
+  hourlyLabels.push(hourTime);
+ }
+
+ // Create the line chart for hourly temperatures
+ const ctx = document.getElementById('hourly-chart').getContext('2d');
+ new Chart(ctx, {
+     type: 'line',
+     data: {
+         labels: hourlyLabels,
+         datasets: [{
+             label: 'Temperature (°C)',
+             data: hourlyTemps,
+             borderColor: 'rgba(75, 192, 192, 1)',
+             fill: false,
+             tension: 0.4
+         }]
+     },
+     options: {
+         scales: {
+             x: {
+                 title: {
+                     display: true,
+                     text: 'Time'
+                 }
+             },
+             y: {
+                 title: {
+                     display: true,
+                     text: 'Temperature (°C)'
+                 }
+             }
+         }
+     }
+ });
+})
+.catch(error => console.error('Error fetching weather data:', error));
+}
+
+setInterval(updateCurrentTime, 60000);
+updateCurrentTime();
+fetchWeatherData();
+
+
+  
+    // Initialize the map and set a default view
+    function initializeMap(lat = 51.505, lng = -0.09, zoom = 4) {
+      map = L.map('mapcontainer').setView([lat, lng], zoom);
+  
+      // Add OpenStreetMap tile layer
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+    }
+  
+    // Call this function on search
+    function searchCountry() {
+      const country = document.getElementById('country').value;
+      const geocodeUrl = `https://nominatim.openstreetmap.org/search?country=${country}&format=json&limit=1`;
+  
+      // Fetch the coordinates for the country
+      fetch(geocodeUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data && data.length > 0) {
+            const { lat, lon } = data[0];
+  
+            // Update the map view with the country's coordinates
+            map.setView([lat, lon], 6); // Zoom level can be adjusted
+  
+            // Add a marker at the country's coordinates
+            L.marker([lat, lon]).addTo(map)
+              .bindPopup(`<b>${country}</b>`)
+              .openPopup();
+          } else {
+            alert("Country not found");
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching country data:", error);
+          alert("Could not fetch country data");
+        });
+    }
+  
+    // Initialize the map when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeMap(); // Default view to some location
+    });
+  
+    // Add event listener to search button
+    document.getElementById('search-btn').addEventListener('click', searchCountry);
+  </script>
+  
+   <script>
+// Update weather in
+     document.getElementById("country-name").textContent = `Country: ${data.sys.country}`;
+     document.getElementById("temperature").textContent = `Temperature: ${(data.main.temp - 273.15).toFixed(2)}°C`;
+     document.getElementById("feels-like").textContent = `Feels like: ${(data.main.feels_like - 273.15).toFixed(2)}°C`;
+     document.getElementById("wind").textContent = `Wind speed: ${data.wind.speed} m/s`;
+     document.getElementById("description").textContent = `Condition: ${data.weather[0].description}`;
+    
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
