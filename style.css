@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   color:black;
   padding: 0;
+  border-radius: none;
   margin: 0;
 }
 .navbar {
@@ -97,8 +98,10 @@ body {
 
   .navbar-menu.active {
       display: flex;
-    flex-direction: column;
   }
+}
+
+
 
 .map {
   width:400px ;
@@ -197,9 +200,9 @@ h3{
 }
 
 #map{
-  width: 100%;
-  height: auto;
-  max-width:600px;
+  width: 1800px;
+  height: 900px;
+  margin-left:  auto;
 }
 
 
@@ -237,9 +240,9 @@ h3{
 
 .hourly-forecast{
   flex:2;
-   margin: 0px 0px 5px 400px;
+   margin: 0px 20px 5px 300px;
 height: 300px;
-width: 100%;}
+width: 100px;}
 
 .daily-forecast{
   flex: 2;
@@ -279,13 +282,6 @@ width: 100%;}
   color: black;
 }
 
-@media screen (max-width:768px) {
-.container{ width: 60%;}
-  h1{ font-size:14px;}
-  button{font-size:14px;}
-  
-};
   
 
-
-
+  
