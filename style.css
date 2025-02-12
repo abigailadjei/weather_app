@@ -281,3 +281,11 @@ width: 100px;}
   font-size: 20px;
   color: black;
 }
+
+@media screen (max-width: 768px) {
+.container{ width: 90%;}
+};
+  
+
+
+
