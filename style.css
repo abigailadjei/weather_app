@@ -282,8 +282,11 @@ width: 100px;}
   color: black;
 }
 
-@media screen (max-width: 768px) {
-.container{ width: 90%;}
+@media screen (max-width:300px ) {
+.container{ width: 60%;}
+  h1{ font-size:14px;}
+  button{font-size:14px;}
+  
 };
   
 
